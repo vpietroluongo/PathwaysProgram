@@ -1,0 +1,14 @@
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\obj\Debug\net10.0\Power1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\obj\Debug\net10.0\Power1.AssemblyInfoInputs.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\obj\Debug\net10.0\Power1.AssemblyInfo.cs
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\obj\Debug\net10.0\Power1.csproj.CoreCompileInputs.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\bin\Debug\net10.0\Power1.exe
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\bin\Debug\net10.0\Power1.deps.json
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\bin\Debug\net10.0\Power1.runtimeconfig.json
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\bin\Debug\net10.0\Power1.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\bin\Debug\net10.0\Power1.pdb
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\obj\Debug\net10.0\Power1.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\obj\Debug\net10.0\refint\Power1.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\obj\Debug\net10.0\Power1.pdb
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\obj\Debug\net10.0\Power1.genruntimeconfig.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Power1\obj\Debug\net10.0\ref\Power1.dll

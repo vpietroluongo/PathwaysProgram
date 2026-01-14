@@ -1,0 +1,14 @@
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\obj\Debug\net10.0\StudentGrades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\obj\Debug\net10.0\StudentGrades.AssemblyInfoInputs.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\obj\Debug\net10.0\StudentGrades.AssemblyInfo.cs
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\obj\Debug\net10.0\StudentGrades.csproj.CoreCompileInputs.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\bin\Debug\net10.0\StudentGrades.exe
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\bin\Debug\net10.0\StudentGrades.deps.json
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\bin\Debug\net10.0\StudentGrades.runtimeconfig.json
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\bin\Debug\net10.0\StudentGrades.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\bin\Debug\net10.0\StudentGrades.pdb
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\obj\Debug\net10.0\StudentGrades.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\obj\Debug\net10.0\refint\StudentGrades.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\obj\Debug\net10.0\StudentGrades.pdb
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\obj\Debug\net10.0\StudentGrades.genruntimeconfig.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades\obj\Debug\net10.0\ref\StudentGrades.dll

@@ -1,0 +1,14 @@
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\obj\Debug\net10.0\FtToIn.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\obj\Debug\net10.0\FtToIn.AssemblyInfoInputs.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\obj\Debug\net10.0\FtToIn.AssemblyInfo.cs
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\obj\Debug\net10.0\FtToIn.csproj.CoreCompileInputs.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\bin\Debug\net10.0\FtToIn.exe
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\bin\Debug\net10.0\FtToIn.deps.json
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\bin\Debug\net10.0\FtToIn.runtimeconfig.json
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\bin\Debug\net10.0\FtToIn.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\bin\Debug\net10.0\FtToIn.pdb
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\obj\Debug\net10.0\FtToIn.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\obj\Debug\net10.0\refint\FtToIn.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\obj\Debug\net10.0\FtToIn.pdb
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\obj\Debug\net10.0\FtToIn.genruntimeconfig.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\FtToIn\obj\Debug\net10.0\ref\FtToIn.dll

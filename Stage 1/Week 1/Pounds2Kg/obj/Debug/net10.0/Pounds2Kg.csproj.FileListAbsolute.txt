@@ -1,0 +1,14 @@
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\bin\Debug\net10.0\Pounds2Kg.exe
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\bin\Debug\net10.0\Pounds2Kg.deps.json
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\bin\Debug\net10.0\Pounds2Kg.runtimeconfig.json
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\bin\Debug\net10.0\Pounds2Kg.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\bin\Debug\net10.0\Pounds2Kg.pdb
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\obj\Debug\net10.0\Pounds2Kg.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\obj\Debug\net10.0\Pounds2Kg.AssemblyInfoInputs.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\obj\Debug\net10.0\Pounds2Kg.AssemblyInfo.cs
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\obj\Debug\net10.0\Pounds2Kg.csproj.CoreCompileInputs.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\obj\Debug\net10.0\Pounds2Kg.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\obj\Debug\net10.0\refint\Pounds2Kg.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\obj\Debug\net10.0\Pounds2Kg.pdb
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\obj\Debug\net10.0\Pounds2Kg.genruntimeconfig.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\Pounds2Kg\obj\Debug\net10.0\ref\Pounds2Kg.dll

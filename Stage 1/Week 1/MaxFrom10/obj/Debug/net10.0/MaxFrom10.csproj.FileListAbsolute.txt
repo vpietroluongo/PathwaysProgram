@@ -1,0 +1,14 @@
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\obj\Debug\net10.0\MaxFrom10.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\obj\Debug\net10.0\MaxFrom10.AssemblyInfoInputs.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\obj\Debug\net10.0\MaxFrom10.AssemblyInfo.cs
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\obj\Debug\net10.0\MaxFrom10.csproj.CoreCompileInputs.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\bin\Debug\net10.0\MaxFrom10.exe
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\bin\Debug\net10.0\MaxFrom10.deps.json
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\bin\Debug\net10.0\MaxFrom10.runtimeconfig.json
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\bin\Debug\net10.0\MaxFrom10.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\bin\Debug\net10.0\MaxFrom10.pdb
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\obj\Debug\net10.0\MaxFrom10.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\obj\Debug\net10.0\refint\MaxFrom10.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\obj\Debug\net10.0\MaxFrom10.pdb
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\obj\Debug\net10.0\MaxFrom10.genruntimeconfig.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\MaxFrom10\obj\Debug\net10.0\ref\MaxFrom10.dll

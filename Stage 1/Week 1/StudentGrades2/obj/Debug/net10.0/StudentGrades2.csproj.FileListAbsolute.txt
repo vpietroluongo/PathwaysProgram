@@ -1,0 +1,14 @@
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\bin\Debug\net10.0\StudentGrades2.exe
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\bin\Debug\net10.0\StudentGrades2.deps.json
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\bin\Debug\net10.0\StudentGrades2.runtimeconfig.json
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\bin\Debug\net10.0\StudentGrades2.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\bin\Debug\net10.0\StudentGrades2.pdb
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\obj\Debug\net10.0\StudentGrades2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\obj\Debug\net10.0\StudentGrades2.AssemblyInfoInputs.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\obj\Debug\net10.0\StudentGrades2.AssemblyInfo.cs
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\obj\Debug\net10.0\StudentGrades2.csproj.CoreCompileInputs.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\obj\Debug\net10.0\StudentGrades2.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\obj\Debug\net10.0\refint\StudentGrades2.dll
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\obj\Debug\net10.0\StudentGrades2.pdb
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\obj\Debug\net10.0\StudentGrades2.genruntimeconfig.cache
+C:\Users\req94923\OneDrive - Mutual of Omaha\Desktop\Pathways Program\Stage 1\Week 1\StudentGrades2\obj\Debug\net10.0\ref\StudentGrades2.dll
