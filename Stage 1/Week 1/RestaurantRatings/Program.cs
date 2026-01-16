@@ -38,6 +38,7 @@ namespace RestaurantRatings
                         break;
                     case "S":
                         Console.WriteLine("In S area");
+                        ArrayToFile(restaurants, fileName);
                         break;
                     case "C":
                         Console.WriteLine("In C area");
@@ -306,5 +307,57 @@ namespace RestaurantRatings
 
             return lines;      
         } //end DeleteRestaurant method
+
+        static void ArrayToFile(string[,] restaurants, string file)
+        {   
+            string writeStatus = "";
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(file))
+                {
+                    for (int i = 0; i < restaurants.GetLength(0); i++)
+                    {
+                        string newString = "";
+                        for (int j = 0; j < restaurants.GetLength(1); j++)
+                        {
+                            if (j == (restaurants.GetLength(1) - 1))
+                            {  
+                                if (restaurants[i,j] == " " || restaurants[i,j] == "" || restaurants[i,j] == null)
+                                {
+                                    newString = " ";
+                                }
+                                else
+                                {
+                                    newString = newString + restaurants[i,j];
+                                }
+                            }
+                            else
+                            {
+                                if (restaurants[i,j] == " " || restaurants[i,j] == "" || restaurants[i,j] == null)
+                                {     
+                                    newString = " ";
+                                }
+                                else
+                                {
+                                    newString = newString + restaurants[i,j] + ",";
+                                }
+                            }
+                        } //end for loop for j
+
+                        writer.WriteLine(newString);
+                    } // end for loop for i
+                    writeStatus = "Successful";
+                } //end using StreamWriter
+            } //end try
+            catch (Exception e)
+            {
+                writeStatus = "Failed";
+                Console.WriteLine("Error writing to file.");   
+            } //end catch
+            finally
+            {
+                Console.WriteLine($"{writeStatus} write to file.");   
+            } //end finally
+        } //end ArrayToFile method
     } //end class
 } //end namespace

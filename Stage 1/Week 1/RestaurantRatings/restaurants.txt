@@ -5,21 +5,21 @@ Joe Tess,seafood,1
 Clio,Mediterranean,4
 Ooh De Lally,American,5
 Good Lookin,brunch,3
- remove
+ 
 Dumpling Empire,Asian,3
 Mochinut,Asian,2
 J. Gilbert's,American,5
 Surfside Club,American,3
 Veg.Edible,vegan,5
- remove
- remove
- remove
- remove
- remove
- remove
+ 
+ 
+ 
+ 
+ 
+ 
 Block 16,American,5
- remove
- remove
- remove
+ 
+ 
+ 
 WD Cravings,American,3
- remove
+ 
