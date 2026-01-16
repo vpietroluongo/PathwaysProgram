@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("w3Practice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5819cee4bcf6d73da929e85dbbfe9c02c8881183")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9cedb3616968bb3b7644e439c7df6b714603ba8")]
 [assembly: System.Reflection.AssemblyProductAttribute("w3Practice")]
 [assembly: System.Reflection.AssemblyTitleAttribute("w3Practice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
