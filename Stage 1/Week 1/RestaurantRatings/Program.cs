@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Transactions;
 
 namespace RestaurantRatings
 {
@@ -47,6 +48,7 @@ namespace RestaurantRatings
                         break;
                     case "U":
                         Console.WriteLine("In U area");
+                        restaurants = UpdateRestaurant(restaurants);
                         break;
                     case "D":
                         Console.WriteLine("In D area");
@@ -181,5 +183,70 @@ namespace RestaurantRatings
 
             return lines;
         } //end AddRestaurant method
+
+        static string[,] UpdateRestaurant(string[,] lines)
+        {
+            string name;
+            int j = 0;
+            int restaurantIndex = -1;
+
+            Console.Write("Please enter the restaurant to update:");
+            name = Console.ReadLine();
+ 
+            for (int i = 0; i < lines.GetLength(0); i++)
+            {
+                if (lines[i,j] == name)
+                {
+                    restaurantIndex = i;    
+                }
+            }
+
+            if (restaurantIndex != -1)
+            {
+                bool inputValid = false;
+                do
+                {
+                    Console.WriteLine("Enter one of the following to update: name, cuisine, rating:");
+                    string input = (Console.ReadLine()).ToLower();
+                    switch (input)
+                    {
+                        case "name":
+                            Console.Write("Enter new name:");
+                            lines[restaurantIndex,0] = Console.ReadLine();
+                            inputValid = true;
+                            break;
+                        case "cuisine":
+                            Console.Write("Enter new cuisine:");
+                            lines[restaurantIndex,1] = Console.ReadLine();
+                            inputValid = true;
+                            break;
+                        case "rating":
+                            Console.Write("Enter new rating:");
+                            bool validNum = false;
+                            do
+                            {
+                                int newRating = Convert.ToInt32(Console.ReadLine());
+                                if (newRating >= 0 && newRating <= 5)
+                                {
+                                    validNum = true;
+                                    lines[restaurantIndex,2] = Convert.ToString(newRating);
+                                }
+                                else
+                                    Console.Write("Please enter a number between 0 and 5:");
+                            }
+                            while (!validNum);
+                            inputValid = true;
+                            break;
+                        default:
+                            Console.Write("Invalid input.  Enter name, cuisine, or rating:");
+                            break;
+                    }   //end switch 
+                } while (!inputValid); 
+            } //end if restaurant found
+            else
+                Console.WriteLine("Restaurant is not found.");
+
+            return lines;
+        }  //end UpdateRestaurant method        
     } //end class
 } //end namespace
