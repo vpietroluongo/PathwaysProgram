@@ -7,6 +7,7 @@ namespace RestaurantRatings
 {
     class Program
     {
+        //This program reads a comma-delimitted file with information about up to 25 restaurant names, their type of cuisine, and star ratings, and lets the user modify and save that infos
         static void Main(string[] args)
         {
             bool quitProgram = false;
@@ -42,11 +43,11 @@ namespace RestaurantRatings
                         break;
                     case "C":
                         Console.WriteLine("In C area");
-                        restaurants = AddRestaurant(restaurants, arraySize, arrayColumns);
+                        restaurants = AddRestaurant(restaurants);
                         break;
                     case "R":
                         Console.WriteLine("In R area");
-                        PrintArray(restaurants, arraySize, arrayColumns);
+                        PrintArray(restaurants);
                         break;
                     case "U":
                         Console.WriteLine("In U area");
@@ -67,7 +68,9 @@ namespace RestaurantRatings
             } while(!quitProgram);
         } //end Main method
 
-        //This method reads a file line by line and outputs the lines to a 2D array, where each row is the information for a different restaurant
+
+
+        //This method reads a file line by line and returns the lines to a 2D array, where each row is the information for a different restaurant
         static string[,] FileToArray(string file, int arraySize, int arrayColumns)
         {
             string fileStatus = "";
@@ -109,15 +112,17 @@ namespace RestaurantRatings
             return arrayFromFile; 
         } //end FileToArray method
 
+
+
         //This method loops through the array and writes out each row on a new line
-        static void PrintArray(string[,] lines, int arraySize, int columnSize)
+        static void PrintArray(string[,] lines)
         {
             int j;
             bool elementsFound = false;
 
-            for (int i = 0; i < arraySize; i ++)
+            for (int i = 0; i < lines.GetLength(0); i ++)
             {
-                for (j = 0; j < columnSize; j++)
+                for (j = 0; j < lines.GetLength(1); j++)
                 {
                     if (lines[i,j] != "" && lines[i,j] != " " && lines[i,j] != null)
                     { 
@@ -132,6 +137,8 @@ namespace RestaurantRatings
          //       Console.WriteLine("Empty list of restaurants");
         } //end PrintArray method
 
+
+
         /*This method loops through one index of a 2D array looking for an available space.  
           If space is not available 
             Output an error message
@@ -139,7 +146,7 @@ namespace RestaurantRatings
             update the first available spot with restaurant name, cuisine, and rating
           Return a 2D array
         */
-        static string[,] AddRestaurant(string[,] lines, int arraySize, int columnSize)
+        static string[,] AddRestaurant(string[,] lines)
         {
             int indexFound = -1;
             int i = 0;
@@ -147,22 +154,22 @@ namespace RestaurantRatings
             int input;
             bool validInput = false;
 
-            for (i = 0; i < arraySize; i++)
+            //loop through row of array with the assumption that if the restaurant element is empty, the other values in that row are empty as well
+            for (i = 0; i < lines.GetLength(0); i++)
             {
-                //for (j = 0; j < columnSize; j++)
-                //{
+                    //only update indexFound value if it has not already been changed so that we force the first available space to get updated later
                     if (lines[i,j] == " " && indexFound == -1)
                     {
                         indexFound = i;
-                    }
-                //}    
+                    }   
             }
-           // } while(i < arraySize && i = -1);
 
+            //if no available space was found, write out a message
             if (indexFound == -1)
             {
                 Console.WriteLine("No space available. Returning to main menu.");
             }
+            //if available space was found, update that space with user input
             else
             {
                 Console.Write("Enter a restaurant name:");
@@ -186,6 +193,8 @@ namespace RestaurantRatings
 
             return lines;
         } //end AddRestaurant method
+
+
 
         /*This method prompts the user for a restaurant name and then loops through the rows of a 2D array looking for a match.
           If a match is found
@@ -215,6 +224,7 @@ namespace RestaurantRatings
             Console.Write("Please enter the restaurant to update:");
             name = Console.ReadLine();
  
+            //loop through row of array and set restauntIndex if a matching name is found
             for (int i = 0; i < lines.GetLength(0); i++)
             {
                 if (lines[i,j] == name)
@@ -223,6 +233,7 @@ namespace RestaurantRatings
                 }
             }
 
+            //if a match is found, prompt user for what they want to update and update corresponding element
             if (restaurantIndex != -1)
             {
                 bool inputValid = false;
@@ -265,11 +276,14 @@ namespace RestaurantRatings
                     }   //end switch 
                 } while (!inputValid); 
             } //end if restaurant found
+            //if a match is nout found, output a message
             else
                 Console.WriteLine("Restaurant is not found.");
 
             return lines;
         }  //end UpdateRestaurant method       
+
+
 
         /*This method promts the user for a restaurant name and then loops through the rows of a 2D array looking for a match.
           If a match is found
@@ -287,6 +301,7 @@ namespace RestaurantRatings
             Console.Write("Please enter the restaurant to delete:");
             name = Console.ReadLine();
  
+            //loop through row of array and set restauntIndex if a matching name is found
             for (int i = 0; i < lines.GetLength(0); i++)
             {
                 if (lines[i,j] == name)
@@ -295,6 +310,7 @@ namespace RestaurantRatings
                 }
             }
 
+            //if a matching name is found, loop through the columns to blank out each element
             if (restaurantIndex != -1)
             {
                 for (j = 0; j < lines.GetLength(1); j++)
@@ -302,12 +318,16 @@ namespace RestaurantRatings
                     lines[restaurantIndex,j] = " ";
                 }
             }
+            //if a matching name is not found, output a message
             else
                 Console.WriteLine("Restaurant not found.");
 
             return lines;      
         } //end DeleteRestaurant method
 
+
+        /*This method takes in a 2D array and a file, loops through the array to create comma delimtted lines for each row, and writes each line to a file
+        */
         static void ArrayToFile(string[,] restaurants, string file)
         {   
             string writeStatus = "";
@@ -320,8 +340,10 @@ namespace RestaurantRatings
                         string newString = "";
                         for (int j = 0; j < restaurants.GetLength(1); j++)
                         {
+                            //if at the the end of the row, don't include a comma at the end of the new string
                             if (j == (restaurants.GetLength(1) - 1))
                             {  
+                                //if the element is blank, don't include any commas
                                 if (restaurants[i,j] == " " || restaurants[i,j] == "" || restaurants[i,j] == null)
                                 {
                                     newString = " ";
@@ -331,8 +353,10 @@ namespace RestaurantRatings
                                     newString = newString + restaurants[i,j];
                                 }
                             }
+                            //if not at the end of the row, include a comma at the end of the new string 
                             else
                             {
+                                //if the element is blank, don't include any commas
                                 if (restaurants[i,j] == " " || restaurants[i,j] == "" || restaurants[i,j] == null)
                                 {     
                                     newString = " ";
