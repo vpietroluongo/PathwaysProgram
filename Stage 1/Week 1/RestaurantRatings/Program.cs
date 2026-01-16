@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Transactions;
+using Microsoft.VisualBasic.FileIO;
 
 namespace RestaurantRatings
 {
@@ -52,6 +53,7 @@ namespace RestaurantRatings
                         break;
                     case "D":
                         Console.WriteLine("In D area");
+                        restaurants = DeleteRestaurant(restaurants);
                         break;
                     case "Q":
                         Console.WriteLine("In Q area");
@@ -184,6 +186,25 @@ namespace RestaurantRatings
             return lines;
         } //end AddRestaurant method
 
+        /*This method prompts the user for a restaurant name and then loops through the rows of a 2D array looking for a match.
+          If a match is found
+            prompt user for what they want to update
+            do 
+                obtain category from user
+                if name
+                    update name element
+                if cuisine
+                    update cuisine element
+                if rating
+                    check valid range
+                        update rating element
+                if other
+                    Write out error message
+            while category flag set to false
+          else
+            Write out an error message
+          Return a 2D array
+        */
         static string[,] UpdateRestaurant(string[,] lines)
         {
             string name;
@@ -247,6 +268,43 @@ namespace RestaurantRatings
                 Console.WriteLine("Restaurant is not found.");
 
             return lines;
-        }  //end UpdateRestaurant method        
+        }  //end UpdateRestaurant method       
+
+        /*This method promts the user for a restaurant name and then loops through the rows of a 2D array looking for a match.
+          If a match is found
+            delete the elements in the array associated with that restaurant
+          else
+            Write out an error message
+          Return a 2D array
+        */
+        static string[,] DeleteRestaurant(string[,] lines)
+        {
+           string name;
+            int j = 0;
+            int restaurantIndex = -1;
+
+            Console.Write("Please enter the restaurant to delete:");
+            name = Console.ReadLine();
+ 
+            for (int i = 0; i < lines.GetLength(0); i++)
+            {
+                if (lines[i,j] == name)
+                {
+                    restaurantIndex = i;    
+                }
+            }
+
+            if (restaurantIndex != -1)
+            {
+                for (j = 0; j < lines.GetLength(1); j++)
+                {
+                    lines[restaurantIndex,j] = " ";
+                }
+            }
+            else
+                Console.WriteLine("Restaurant not found.");
+
+            return lines;      
+        } //end DeleteRestaurant method
     } //end class
 } //end namespace
