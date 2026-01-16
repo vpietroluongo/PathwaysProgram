@@ -7,7 +7,7 @@ namespace RestaurantRatings
 {
     class Program
     {
-        //This program reads a comma-delimitted file with information about up to 25 restaurant names, their type of cuisine, and star ratings, and lets the user modify and save that infos
+        //This program reads a comma-delimitted file with information about up to 25 restaurant names, their type of cuisine, and star ratings, and lets the user modify and save that info
         static void Main(string[] args)
         {
             bool quitProgram = false;
@@ -119,22 +119,32 @@ namespace RestaurantRatings
         {
             int j;
             bool elementsFound = false;
+            //bool blankLine = true;
 
             for (int i = 0; i < lines.GetLength(0); i ++)
             {
                 for (j = 0; j < lines.GetLength(1); j++)
                 {
+                    //if the line is not blank, loop through the row to print out the line
                     if (lines[i,j] != "" && lines[i,j] != " " && lines[i,j] != null)
                     { 
                         Console.Write($"{lines[i,j]}  ");
-                 //       elementsFound = true;
-                    } //end if
+                        elementsFound = true;
+                        //blankLine = false;
+                    } 
                 }  //end for loop for j 
-                Console.WriteLine("");   
+
+                //move to new line when at end of array row
+                //if (elementsFound && !blankLine)
+                if (elementsFound)
+                    Console.WriteLine("");  
+
+                //reset blankLine flag 
+                //blankLine = true;
             }  //end for loop for i 
 
-        //    if (elementsFound = false)
-         //       Console.WriteLine("Empty list of restaurants");
+            if (elementsFound == false)
+                Console.WriteLine("Empty list of restaurants");
         } //end PrintArray method
 
 
@@ -189,6 +199,7 @@ namespace RestaurantRatings
                     else 
                         Console.Write("Star rating must be between 0 and 5.  Please re-enter a rating:");        
                 } while (!validInput);
+                Console.WriteLine($"Restaurant added at row {indexFound}");
             }
 
             return lines;
@@ -239,7 +250,7 @@ namespace RestaurantRatings
                 bool inputValid = false;
                 do
                 {
-                    Console.WriteLine("Enter one of the following to update: name, cuisine, rating:");
+                    Console.Write("Enter one of the following to update: name, cuisine, rating:");
                     string input = (Console.ReadLine()).ToLower();
                     switch (input)
                     {
