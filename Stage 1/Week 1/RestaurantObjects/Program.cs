@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Transactions;
 using Microsoft.VisualBasic.FileIO;
 
-namespace RestaurantRatings
+namespace RestaurantObjects
 {
     class Program
     {
@@ -12,8 +12,7 @@ namespace RestaurantRatings
         {
             bool quitProgram = false;
             const int arraySize = 25;
-            const int arrayColumns = 3;
-            string[,] restaurants = new string[arraySize, arrayColumns];
+            Restaurant[] restaurants = new Restaurant[arraySize];
             string fileName = "restaurants.txt";
 
             Console.WriteLine("Restaurant Ratings");
@@ -35,7 +34,7 @@ namespace RestaurantRatings
                 {
                     case "L":
                         Console.WriteLine("In L area");
-                        restaurants = FileToArray(fileName, arraySize, arrayColumns);
+                        restaurants = FileToArray(fileName, arraySize);
                         break;
                     case "S":
                         Console.WriteLine("In S area");
@@ -70,11 +69,11 @@ namespace RestaurantRatings
 
 
 
-        //This method reads a file line by line and returns the lines to a 2D array, where each row is the information for a different restaurant
-        static string[,] FileToArray(string file, int arraySize, int arrayColumns)
+        //This method reads a file line by line and returns the lines to a 1D array of Restaurant objects, where each object has the information for a different restaurant
+        static Restaurant[] FileToArray(string file, int arraySize)
         {
             string fileStatus = "";
-            string[,] arrayFromFile = new string[arraySize, arrayColumns];
+            Restaurant[] arrayFromFile = new Restaurant[arraySize];
 
             try
             {
@@ -82,18 +81,18 @@ namespace RestaurantRatings
                 using (StreamReader reader = File.OpenText(file))
                 {
                     string lineRead = " ";
-                    //bool lineFound = false;
                     int i = 0;
 
                     while ((lineRead = reader.ReadLine()) != null)
                     {
-                       // lineFound = true;
-                        //Parse the line read by comma, and put each parsed word into a new element for the same row.
+                        //Parse the line read by comma and put each pasrsed word into a new element in the words array
                         string[] words = lineRead.Split(',');
-                        for (int j = 0; j < words.Length; j++)
-                        { 
-                            arrayFromFile[i,j] = words[j]; 
-                        }
+                        //if the line read is blank, initialize a blank object
+                        if (words[0] == " ")
+                            arrayFromFile[i] = new Restaurant();
+                        //if the line read is not blank, put each parsed word into its corresponding restaurant object field
+                        else
+                            arrayFromFile[i] = new Restaurant(words[0], words[1], Convert.ToInt32(words[2])); 
                         i++;   
                     }    
                 } //end using StreamReader
@@ -102,7 +101,8 @@ namespace RestaurantRatings
             catch (Exception e)
             {
                 fileStatus = "unsuccessful";
-                Console.WriteLine($"File {file} not found.");    
+                Console.WriteLine($"File {file} not found.");   
+                Console.WriteLine(e);  
             }
             finally
             {
@@ -114,34 +114,17 @@ namespace RestaurantRatings
 
 
 
-        //This method loops through the array and writes out each row on a new line
-        static void PrintArray(string[,] lines)
+        //This method loops through the array of Restaurant objects and writes out each row on a new line
+        static void PrintArray(Restaurant[] restaurantsArray)
         {
-            int j;
             bool elementsFound = false;
-            //bool blankLine = true;
 
-            for (int i = 0; i < lines.GetLength(0); i ++)
+            for (int i = 0; i < restaurantsArray.Length; i ++)
             {
-                for (j = 0; j < lines.GetLength(1); j++)
-                {
-                    //if the line is not blank, loop through the row to print out the line
-                    if (lines[i,j] != "" && lines[i,j] != " " && lines[i,j] != null)
-                    { 
-                        Console.Write($"{lines[i,j]}  ");
-                        elementsFound = true;
-                        //blankLine = false;
-                    } 
-                }  //end for loop for j 
-
-                //move to new line when at end of array row
-                //if (elementsFound && !blankLine)
-                if (elementsFound)
-                    Console.WriteLine("");  
-
-                //reset blankLine flag 
-                //blankLine = true;
-            }  //end for loop for i 
+                Console.WriteLine(restaurantsArray[i]);
+                if (restaurantsArray[i].Name != " ")
+                    elementsFound = true;
+            }  
 
             if (elementsFound == false)
                 Console.WriteLine("Empty list of restaurants");
@@ -149,26 +132,24 @@ namespace RestaurantRatings
 
 
 
-        /*This method loops through one index of a 2D array looking for an available space.  
+        /*This method loops through a 1D array of Restaurant objects looking for an available space.  
           If space is not available 
             Output an error message
           else
             update the first available spot with restaurant name, cuisine, and rating
-          Return a 2D array
+          Return a 1D array of Restaurant objects
         */
-        static string[,] AddRestaurant(string[,] lines)
+        static Restaurant[] AddRestaurant(Restaurant[] restaurantsArray)
         {
             int indexFound = -1;
-            int i = 0;
-            int j = 0;
             int input;
             bool validInput = false;
-
-            //loop through row of array with the assumption that if the restaurant element is empty, the other values in that row are empty as well
-            for (i = 0; i < lines.GetLength(0); i++)
+             
+            //loop through array of Restaurant objects with the assumption that if the Restaurant name is empty, the other values in for that Restaurant are also empty
+            for (int i = 0; i < restaurantsArray.Length; i++)
             {
                     //only update indexFound value if it has not already been changed so that we force the first available space to get updated later
-                    if (lines[i,j] == " " && indexFound == -1)
+                    if (restaurantsArray[i].Name == " " && indexFound == -1)
                     {
                         indexFound = i;
                     }   
@@ -183,9 +164,9 @@ namespace RestaurantRatings
             else
             {
                 Console.Write("Enter a restaurant name:");
-                lines[indexFound,0] = Console.ReadLine();
+                restaurantsArray[indexFound].Name = Console.ReadLine();
                 Console.Write("Enter the type of cuisine:");
-                lines[indexFound,1] = Console.ReadLine();
+                restaurantsArray[indexFound].Cuisine = Console.ReadLine();
                 Console.Write("Enter a rating:");
                 do
                 {
@@ -194,51 +175,50 @@ namespace RestaurantRatings
                     {   
                         validInput = true;  
 
-                        lines[indexFound,2] = Convert.ToString(input);  
+                        restaurantsArray[indexFound].setRating(input);  
                     }
                     else 
                         Console.Write("Star rating must be between 0 and 5.  Please re-enter a rating:");        
                 } while (!validInput);
-                Console.WriteLine($"Restaurant added at row {indexFound}");
+                Console.WriteLine($"Restaurant added at index {indexFound}");
             }
 
-            return lines;
+            return restaurantsArray;
         } //end AddRestaurant method
 
 
 
-        /*This method prompts the user for a restaurant name and then loops through the rows of a 2D array looking for a match.
+        /*This method prompts the user for a restaurant name and then loops through the rows of a 1D array of Restaurant objects looking for a match.
           If a match is found
             prompt user for what they want to update
             do 
                 obtain category from user
                 if name
-                    update name element
+                    update name property
                 if cuisine
-                    update cuisine element
+                    update cuisine property
                 if rating
                     check valid range
-                        update rating element
+                        update rating field
                 if other
                     Write out error message
             while category flag set to false
           else
             Write out an error message
-          Return a 2D array
+          Return a 1D array Restaurant objects
         */
-        static string[,] UpdateRestaurant(string[,] lines)
+        static Restaurant[] UpdateRestaurant(Restaurant[] restaurantsArray)
         {
             string name;
-            int j = 0;
             int restaurantIndex = -1;
 
             Console.Write("Please enter the restaurant to update:");
             name = Console.ReadLine();
  
             //loop through row of array and set restauntIndex if a matching name is found
-            for (int i = 0; i < lines.GetLength(0); i++)
+            for (int i = 0; i < restaurantsArray.Length; i++)
             {
-                if (lines[i,j] == name)
+                if (restaurantsArray[i].Name == name)
                 {
                     restaurantIndex = i;    
                 }
@@ -256,12 +236,12 @@ namespace RestaurantRatings
                     {
                         case "name":
                             Console.Write("Enter new name:");
-                            lines[restaurantIndex,0] = Console.ReadLine();
+                            restaurantsArray[restaurantIndex].Name = Console.ReadLine();
                             inputValid = true;
                             break;
                         case "cuisine":
                             Console.Write("Enter new cuisine:");
-                            lines[restaurantIndex,1] = Console.ReadLine()!;
+                            restaurantsArray[restaurantIndex].Cuisine = Console.ReadLine();
                             inputValid = true;
                             break;
                         case "rating":
@@ -273,7 +253,7 @@ namespace RestaurantRatings
                                 if (newRating >= 0 && newRating <= 5)
                                 {
                                     validNum = true;
-                                    lines[restaurantIndex,2] = Convert.ToString(newRating);
+                                    restaurantsArray[restaurantIndex].setRating(newRating);
                                 }
                                 else
                                     Console.Write("Please enter a number between 0 and 5:");
@@ -291,96 +271,61 @@ namespace RestaurantRatings
             else
                 Console.WriteLine("Restaurant is not found.");
 
-            return lines;
+            return restaurantsArray;
         }  //end UpdateRestaurant method       
 
 
 
-        /*This method promts the user for a restaurant name and then loops through the rows of a 2D array looking for a match.
+        /*This method promts the user for a restaurant name and then loops through the rows of a 1D array of Restaurant objects looking for a match.
           If a match is found
-            delete the elements in the array associated with that restaurant
+            replace the object at that index with a blank object
           else
             Write out an error message
-          Return a 2D array
+          Return a 1D array of Restaurant objects
         */
-        static string[,] DeleteRestaurant(string[,] lines)
+        static Restaurant[] DeleteRestaurant(Restaurant[] restaurantsArray)
         {
-           string name;
-            int j = 0;
+            string name;
             int restaurantIndex = -1;
 
             Console.Write("Please enter the restaurant to delete:");
             name = Console.ReadLine();
  
             //loop through row of array and set restauntIndex if a matching name is found
-            for (int i = 0; i < lines.GetLength(0); i++)
+            for (int i = 0; i < restaurantsArray.Length; i++)
             {
-                if (lines[i,j] == name)
+                if (restaurantsArray[i].Name == name)
                 {
                     restaurantIndex = i;    
                 }
             }
 
-            //if a matching name is found, loop through the columns to blank out each element
+            //if a matching name is found, instantiate a blank Restaurant object
             if (restaurantIndex != -1)
             {
-                for (j = 0; j < lines.GetLength(1); j++)
-                {
-                    lines[restaurantIndex,j] = " ";
-                }
+                restaurantsArray[restaurantIndex] = new Restaurant();
+                
             }
             //if a matching name is not found, output a message
             else
                 Console.WriteLine("Restaurant not found.");
 
-            return lines;      
+            return restaurantsArray;      
         } //end DeleteRestaurant method
 
 
-        /*This method takes in a 2D array and a file, loops through the array to create comma delimtted lines for each row, and writes each line to a file
-        */
-        static void ArrayToFile(string[,] restaurants, string file)
+        //This method takes in a 1D array of Restaurants objects and a file, loops through the array, and writes each object to a file
+        static void ArrayToFile(Restaurant[] restaurantsArray, string file)
         {   
             string writeStatus = "";
             try
             {
                 using (StreamWriter writer = new StreamWriter(file))
                 {
-                    for (int i = 0; i < restaurants.GetLength(0); i++)
+                    for (int i = 0; i < restaurantsArray.Length; i++)
                     {
-                        string newString = "";
-                        for (int j = 0; j < restaurants.GetLength(1); j++)
-                        {
-                            //if at the the end of the row, don't include a comma at the end of the new string
-                            if (j == (restaurants.GetLength(1) - 1))
-                            {  
-                                //if the element is blank, don't include any commas
-                                if (restaurants[i,j] == " " || restaurants[i,j] == "" || restaurants[i,j] == null)
-                                {
-                                    newString = " ";
-                                }
-                                else
-                                {
-                                    newString = newString + restaurants[i,j];
-                                }
-                            }
-                            //if not at the end of the row, include a comma at the end of the new string 
-                            else
-                            {
-                                //if the element is blank, don't include any commas
-                                if (restaurants[i,j] == " " || restaurants[i,j] == "" || restaurants[i,j] == null)
-                                {     
-                                    newString = " ";
-                                }
-                                else
-                                {
-                                    newString = newString + restaurants[i,j] + ",";
-                                }
-                            }
-                        } //end for loop for j
-
-                        writer.WriteLine(newString);
-                    } // end for loop for i
+                        writer.WriteLine(restaurantsArray[i]);
+                    } 
                     writeStatus = "Successful";
                 } //end using StreamWriter
             } //end try
@@ -393,6 +338,6 @@ namespace RestaurantRatings
             {
                 Console.WriteLine($"{writeStatus} write to file.");   
             } //end finally
-        } //end ArrayToFile method
+       } //end ArrayToFile method
     } //end class
 } //end namespace

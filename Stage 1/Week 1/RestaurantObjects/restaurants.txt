@@ -1,0 +1,25 @@
+Timber Creek,pizza,5
+Cattle Call,fusion,5
+Cafe Diem,brunch,4
+Joe Tess,seafood,1
+Clio,Mediterranean,4
+Ooh De Lally,American,5
+Good Lookin,brunch,3
+ 
+Dumpling Empire,Asian,3
+Mochinut,Asian,2
+J. Gilbert's,American,5
+Surfside Club,American,3
+Veg.Edible,vegan,5
+ 
+ 
+ 
+ 
+ 
+ 
+Block 16,American,5
+ 
+ 
+ 
+WD Cravings,American,3
+ 
