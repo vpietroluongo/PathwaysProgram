@@ -1,7 +1,7 @@
 using System;
 using System.Dynamic;
 
-namespace RestaurantObjects
+namespace RestaurantInheritance
 {
     class Restaurant
     {
