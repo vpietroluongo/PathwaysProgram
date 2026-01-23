@@ -43,6 +43,11 @@ namespace RestaurantInheritance
         {
             rating = newRating;
         }
+
+        public virtual string Stylize(string currentLine)
+        {
+            return currentLine.ToUpper();
+        }
         public override string ToString()
         {
             if (Name == " ")

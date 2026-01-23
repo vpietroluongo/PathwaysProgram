@@ -130,7 +130,8 @@ namespace RestaurantInheritance
 
             for (int i = 0; i < restaurantsArray.Length; i ++)
             {
-                Console.WriteLine(restaurantsArray[i]);
+                Console.WriteLine($"{restaurantsArray[i]} {restaurantsArray[i].Stylize(restaurantsArray[i].Name)}");
+               // restaurantsArray[i].Stylize(restaurantsArray[i].Name)
                 if (restaurantsArray[i].Name != " ")
                     elementsFound = true;
             }  
@@ -330,7 +331,7 @@ namespace RestaurantInheritance
                                 //restaurantsArray[restaurantIndex].CurrentLocation = Console.ReadLine();  //resulted in error CS1061: 'Restaurant' does not contain a definition for 'CurrentLocation' and no accessible extension method
                                 //FoodTruck restaurantsArray[restaurantIndex] = restaurantsArray[restaurantIndex];  //resulted in error CS0270: Array size cannot be specified in a variable declaration (try initializing with a 'new' expression)
                                 //FoodTruck foodTruckObj = restaurantsArray[restaurantIndex];   //resulted in error CS0266: Cannot implicitly convert type 'RestaurantInheritance.Restaurant' to 'RestaurantInheritance.FoodTruck'. An explicit conversion exists (are you missing a cast?)
-                                //cast the element to type Foodtruck
+                                //cast the element to type FoodTruck
                                 FoodTruck foodTruckObj = (FoodTruck)restaurantsArray[restaurantIndex];  //this statement throws an exception if the element is not a FoodTruck object
                                 foodTruckObj.CurrentLocation = Console.ReadLine();  //foodTruckObj is a reference object and is modifying what's in the array
                             }

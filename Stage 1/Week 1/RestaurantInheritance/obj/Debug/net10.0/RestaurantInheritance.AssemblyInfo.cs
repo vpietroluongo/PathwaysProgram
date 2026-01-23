@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RestaurantInheritance")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31bb46387527286c9553ed8104979494091e455c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ae1127981fdb58ca004db6742795acac3531fb3")]
 [assembly: System.Reflection.AssemblyProductAttribute("RestaurantInheritance")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RestaurantInheritance")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -16,6 +16,10 @@ namespace RestaurantInheritance
         {
             CurrentLocation = " ";
         }
+        public override string Stylize(string currentLine)
+        {
+            return currentLine.ToLower();
+        }
 
         public override string ToString()
         {
