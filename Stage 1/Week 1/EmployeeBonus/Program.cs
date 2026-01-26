@@ -4,7 +4,9 @@ using System.Net.NetworkInformation;
 namespace EmployeeBonus
 {
     class Program
-    {
+    { 
+        //This program reads a file with information about up to 25 employees: last name, first name, employee type, and salary/hourly rate, 
+        //and lets the user modify and save that info
         static void Main(string[] args)
         {
             bool quitProgram = false;
@@ -64,7 +66,8 @@ namespace EmployeeBonus
         }  //end Main method
 
 
-
+        //This method reads a file line by line, where every 4 lines is associated with a different employee, and returns the lines to a 1D array of Employee objects, 
+        // where each object has the information for a different employee
          static Employee[] FileToArray(string file, int arraySize)
         {
             bool emptyFile = true;
@@ -81,13 +84,11 @@ namespace EmployeeBonus
                     while ((lineRead = reader.ReadLine()) != null)
                     {
                         emptyFile = false;
-                        Console.WriteLine($"{lineRead} i: {i} lineCounter: {lineCounter}");
                         switch (lineCounter)
                         {
                             case 0:
                                 employees[i] = new Employee();
                                 employees[i].LastName = lineRead;
-                                Console.WriteLine(employees[i].LastName);
                                 lineCounter++;
                                 break;
                             case 1:
@@ -99,23 +100,17 @@ namespace EmployeeBonus
                                 lineCounter++;
                                 break;
                             case 3:
+                                //Check if the employee type is Hourly
                                 if (employees[i].EmployeeType == "H")
                                 {
-                                    //Hourly hourlyEmployee = new Hourly(employees[i].FirstName, employees[i].LastName, employees[i].EmployeeType, Convert.ToDecimal(lineRead));
                                     Hourly hourlyEmployee = new Hourly(employees[i].FirstName, employees[i].LastName, Convert.ToDecimal(lineRead));
-                                    //hourlyEmployee = (Hourly)employees[i];
                                     employees[i] = hourlyEmployee;
-                                    //hourlyEmployee.HourlyRate = Convert.ToDouble(lineRead);
-                                    Console.WriteLine(employees[i].LastName);
-                                    //Console.WriteLine(employees[i].HourlyRate);
-                                    Console.WriteLine(hourlyEmployee.LastName);
-                                    Console.WriteLine(hourlyEmployee.HourlyRate);
                                 }
+                                //Check if the employee type is Salaried
                                 else if (employees[i].EmployeeType == "S")
                                 {
                                     Salaried salaryEmployee = new Salaried(employees[i].FirstName, employees[i].LastName, Convert.ToDecimal(lineRead));
                                     employees[i] = salaryEmployee;
-                                    //salaryEmployee.Salary = Convert.ToDecimal(lineRead);
                                 }
                                 
                                 lineCounter = 0;
@@ -139,6 +134,9 @@ namespace EmployeeBonus
             return employees;
         }  //end FileToArray method
 
+
+
+        //For each Employee object in the array, write out the information for that employee
         static void PrintEmployees(Employee[] employees)
         {
             foreach (Employee person in employees)
@@ -146,11 +144,12 @@ namespace EmployeeBonus
         }  //end PrintEmployees method
 
 
-
+        //This method looks for an available space, and if it finds one, adds an employee to the array of Employee objects
         static void CreateEmployee(Employee[] employees)
         {
             int i = 0;
             int indexFound = -1;
+            bool validInput = false;
 
             while (indexFound == -1 && i < employees.Length)
             {
@@ -164,40 +163,52 @@ namespace EmployeeBonus
             else
             {     
                 Console.Write("Please enter the new employee's type. H, S, or O: ");
-                string input = (Console.ReadLine()).ToUpper();
-                if (input == "H")
-                {
-                    Hourly newHourly = new Hourly();
-                    Console.Write("Enter the new employee's first name:");
-                    newHourly.FirstName = Console.ReadLine();
-                    Console.Write("Enter the new employee's last name:");
-                    newHourly.LastName = Console.ReadLine();
-                    Console.Write("Enter the new employee's hourly rate:");
-                    newHourly.HourlyRate = Convert.ToDecimal(Console.ReadLine());
-                    employees[indexFound] = newHourly;
+                 do
+                 {   
+                    string input = (Console.ReadLine()).ToUpper();
+                    if (input == "H")
+                    {
+                        validInput = true;
+                        Hourly newHourly = new Hourly();
+                        Console.Write("Enter the new employee's first name: ");
+                        newHourly.FirstName = Console.ReadLine();
+                        Console.Write("Enter the new employee's last name: ");
+                        newHourly.LastName = Console.ReadLine();
+                        Console.Write("Enter the new employee's hourly rate: ");
+                        newHourly.HourlyRate = Convert.ToDecimal(Console.ReadLine());
+                        employees[indexFound] = newHourly;
 
-                }
-                else if (input == "S")
-                {
-                    Salaried newSalary = new Salaried();
-                    Console.Write("Enter the new employee's first name:");
-                    newSalary.FirstName = Console.ReadLine();
-                    Console.Write("Enter the new employee's last name:");
-                    newSalary.LastName = Console.ReadLine();
-                    Console.Write("Enter the new employee's yearly salary:");
-                    newSalary.Salary = Convert.ToDecimal(Console.ReadLine());
-                    employees[indexFound] = newSalary;
-                }
-                else
-                {
-                    Console.Write("Enter the new employee's first name:");
-                    employees[indexFound].FirstName = Console.ReadLine();
-                    Console.Write("Enter the new employee's last name:");
-                    employees[indexFound].LastName = Console.ReadLine();                 
-                }
+                    }
+                    else if (input == "S")
+                    {
+                        validInput = true;
+                        Salaried newSalary = new Salaried();
+                        Console.Write("Enter the new employee's first name: ");
+                        newSalary.FirstName = Console.ReadLine();
+                        Console.Write("Enter the new employee's last name: ");
+                        newSalary.LastName = Console.ReadLine();
+                        Console.Write("Enter the new employee's yearly salary: ");
+                        newSalary.Salary = Convert.ToDecimal(Console.ReadLine());
+                        employees[indexFound] = newSalary;
+                    }
+                    else if (input == "O")
+                    {
+                        validInput = true;
+                        employees[indexFound].EmployeeType = input; 
+                        Console.Write("Enter the new employee's first name: ");
+                        employees[indexFound].FirstName = Console.ReadLine();
+                        Console.Write("Enter the new employee's last name: ");
+                        employees[indexFound].LastName = Console.ReadLine();                   
+                    }
+                    else 
+                    {
+                        Console.WriteLine("Please enter H, S , or O: ");                 
+                    }
+                 } while (!validInput);
             }
         }  //end CreateEmployee method
 
+        //This method updates the information for an employee in the Employee array if it finds a matching first and last name
         static void UpdateEmployee(Employee[] employees)
         {
             int indexFound = -1;
@@ -216,7 +227,7 @@ namespace EmployeeBonus
                 }
             }
 
-            //if a matching name is found, instantiate a blank Restaurant object
+            //if a matching name is found, update the specified info
             if (indexFound != -1)
             {
                 Console.Write("Enter one of the following to update: first name, last name, type, rate, salary: ");
@@ -237,28 +248,36 @@ namespace EmployeeBonus
                             inputValid = true;
                             break;
                         case "type":
-                            Console.Write("Enter new employee type: ");
-                            employees[indexFound].EmployeeType = Console.ReadLine().ToUpper();
-                            inputValid = true;
-                            switch (employees[indexFound].EmployeeType)
+                            Console.Write("Enter new employee type: H, S, or O: ");
+                            do
                             {
-                                case "H":
-                                    Console.Write("Please enter the new employee's hourly rate: ");
-                                    input = Console.ReadLine();
-                                    Hourly newHourly = new Hourly(employees[indexFound].FirstName, employees[indexFound].LastName, Convert.ToDecimal(input));
-                                    employees[indexFound] = newHourly;
-                                    break;
-                                case "S":
-                                    Console.Write("Please enter the new employee's salary: ");
-                                    input = Console.ReadLine();
-                                    Salaried newSalaried = new Salaried(employees[indexFound].FirstName, employees[indexFound].LastName, Convert.ToDecimal(input));
-                                    employees[indexFound] = newSalaried;
-                                    break;
-                                default:
-                                    Employee newEmployee = new Employee(employees[indexFound].FirstName, employees[indexFound].LastName, employees[indexFound].EmployeeType);
-                                    employees[indexFound] = newEmployee;
-                                    break;
-                            }
+                                employees[indexFound].EmployeeType = Console.ReadLine().ToUpper();
+                                switch (employees[indexFound].EmployeeType)
+                                {
+                                    case "H":
+                                        inputValid = true;
+                                        Console.Write("Please enter the new employee's hourly rate: ");
+                                        input = Console.ReadLine();
+                                        Hourly newHourly = new Hourly(employees[indexFound].FirstName, employees[indexFound].LastName, Convert.ToDecimal(input));
+                                        employees[indexFound] = newHourly;
+                                        break;
+                                    case "S":
+                                        inputValid = true;
+                                        Console.Write("Please enter the new employee's salary: ");
+                                        input = Console.ReadLine();
+                                        Salaried newSalaried = new Salaried(employees[indexFound].FirstName, employees[indexFound].LastName, Convert.ToDecimal(input));
+                                        employees[indexFound] = newSalaried;
+                                        break;
+                                    case "O":
+                                        inputValid = true;
+                                        Employee newEmployee = new Employee(employees[indexFound].FirstName, employees[indexFound].LastName);
+                                        employees[indexFound] = newEmployee;
+                                        break;
+                                    default:
+                                        Console.Write("Please enter H, S, or O: ");
+                                        break;
+                                }
+                            } while (!inputValid);
                             break;
                         case "rate":
                             inputValid = true;
@@ -295,6 +314,9 @@ namespace EmployeeBonus
                 Console.WriteLine("Employee not found.");
 
         }  //end UpdateEmployee method
+
+
+        //This method overwrites an element with a blank Employee object if a matching first and last name is found
         static void DeleteEmployee(Employee[] employees)
         {
             int indexFound = -1;
@@ -325,6 +347,8 @@ namespace EmployeeBonus
      
         } //end DeleteEmployee method
 
+
+        //This method writes to a file each proprty associated with an employee on a separate line
         static void ArrayToFile(Employee[] employees, string file)
         {
             try

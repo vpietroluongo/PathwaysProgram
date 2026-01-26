@@ -20,11 +20,11 @@ namespace EmployeeBonus
             EmployeeType = " ";    
         }
 
-        public Employee(string first, string last, string type)
+        public Employee(string first, string last)
         {
             FirstName = first;
             LastName = last;
-            EmployeeType = type;
+            EmployeeType = "O";
         }
 
         public virtual decimal BonusCalculation()
@@ -36,7 +36,7 @@ namespace EmployeeBonus
             if (string.IsNullOrWhiteSpace(FirstName))
                 return " ";
             else
-                return $"{FirstName} {LastName} {EmployeeType}-type bonus is {BonusCalculation()}";
+                return $"{FirstName} {LastName} {EmployeeType}-type bonus is ${BonusCalculation()}";
         }
     } //end class
 }  //end namespace

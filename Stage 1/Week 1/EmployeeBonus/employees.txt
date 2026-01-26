@@ -1,7 +1,7 @@
 Smith
 Bob
 H
-20
+20.17
 Contractorlast
 ContractorFirst
 O
@@ -9,11 +9,11 @@ O
 Beasely
 Pam
 S
-75000
- 
- 
- 
- 
+75000.37
+Pietroluongo
+Val
+H
+25
  
  
  
