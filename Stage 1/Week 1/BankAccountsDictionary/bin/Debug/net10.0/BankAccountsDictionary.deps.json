@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "BankAccountsDictionary/1.0.0": {
+        "runtime": {
+          "BankAccountsDictionary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BankAccountsDictionary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

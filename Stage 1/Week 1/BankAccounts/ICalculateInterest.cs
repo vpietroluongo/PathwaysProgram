@@ -1,0 +1,4 @@
+interface ICalculateInterest
+{
+    double CalculateInterest();
+}
