@@ -1,0 +1,4 @@
+interface IShuffleSongs
+{
+    void ShuffleSongs();    
+}

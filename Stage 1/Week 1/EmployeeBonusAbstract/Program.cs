@@ -203,7 +203,7 @@ namespace EmployeeBonusAbstract
             Console.Write("Please enter the last name of the employee to update:");
             string input_lastName = Console.ReadLine();
 
-            //starting at index 0, find the first element that has a matching first and last name as the input
+            //starting at element 0, iteratate through each employee (e) and return the index of the first one where the first and last name are equal to the input
             int indexFound = employees.FindIndex(0, e => e.FirstName == input_firstName && e.LastName == input_lastName);    
 
 
@@ -213,7 +213,6 @@ namespace EmployeeBonusAbstract
                 Console.Write("Enter one of the following to update: first name, last name, type, rate, salary: ");
                 do
                 {
-                    
                     string input = (Console.ReadLine()).ToLower();
                     switch (input)
                     {
@@ -304,13 +303,14 @@ namespace EmployeeBonusAbstract
             Console.Write("Please enter the last name of the employee to delete: ");
             string input_lastName = Console.ReadLine();
  
-            //starting at element 0, find the first element that has a first and last name equal to the input
+            //starting at element 0, iteratate through each employee (e) and return the index of the first one where the first and last name are equal to the input
             int indexFound = employees.FindIndex(0, e => e.FirstName == input_firstName && e.LastName == input_lastName);  
 
             //if a matching name is found, remove the element at that index
             if (indexFound != -1)
             {
                 employees.RemoveAt(indexFound);
+                //employees.Remove(e => e.FirstName == input_firstName && e.LastName == input_lastName);
                 
             }
             //if a matching name is not found, output a message
