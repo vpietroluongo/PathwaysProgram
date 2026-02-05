@@ -25,7 +25,7 @@ class Executive : Membership, ISpecialOffer
         MembershipType = "E";
     }
 
-    public double CalculateSpecialOffer()
+    public double CalculateSpecialOffer()  //return 50% of the annual membership cost
     {
         double specialOfferReturn = AnnualCost * 0.5;
         return specialOfferReturn;
@@ -43,6 +43,6 @@ class Executive : Membership, ISpecialOffer
     }
     public override string ToString()
     {
-        return base.ToString() + $" | Percent cash-back >= 1000: {CashBackPercentAbove1000:F2}% | Percent cash-back <1000 = {CashBackPercentBelow1000:F2}% | Special Offer Return: ${CalculateSpecialOffer():F2}";
+        return base.ToString() + $" \n                        | Percent cash-back >= 1000: {CashBackPercentAbove1000:F2}% | Percent cash-back <1000 = {CashBackPercentBelow1000:F2}% | Special Offer Return: ${CalculateSpecialOffer():F2}";
     }
 } //end class

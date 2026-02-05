@@ -24,7 +24,6 @@ abstract class Membership
         ThisMonthPurchaseAmount = 0; 
     }
 
-    //public Membership(double newCost, int newID, string newType, string newEmail, double newPurchaseAmount)
     public Membership(int newID, string newEmail, double newPurchaseAmount)
     {
         MembershipID = newID;

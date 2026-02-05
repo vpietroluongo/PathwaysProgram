@@ -14,15 +14,14 @@ class Regular : Membership, ISpecialOffer
         CashBackPercent = 2;
     }
 
-   // public Regular(double newCost, int newID, string newType, string newEmail, double newPurchaseAmount, double newCashBackPercent) : base(newCost, newID, newType, newEmail, newPurchaseAmount)
-    public Regular(int newID, string newEmail, double newPurchaseAmount) : base(newID, newEmail, newPurchaseAmount)
+       public Regular(int newID, string newEmail, double newPurchaseAmount) : base(newID, newEmail, newPurchaseAmount)
     {
         AnnualCost = 65;
         MembershipType = "R";
         CashBackPercent = 2;
     }
 
-    public double CalculateSpecialOffer()
+    public double CalculateSpecialOffer()  //return 25% of the annual membership cost
     {
         double specialOfferReturn= AnnualCost * 0.25;
         return specialOfferReturn;

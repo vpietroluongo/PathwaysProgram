@@ -6,6 +6,54 @@ namespace CustomerMembership;
 class Program
 {
     //This program creates a list of customer memberships and lets the user view the info for all of the memberships or create, delete or updated a membership
+            /*  prompt user and obtain option 
+            C section
+                prompt user for new ID and and obtain value
+                search for index of that id in the list
+                if index found
+                    output already in system message
+                else
+                    prompt user and obtain rest of new values
+                    add newly instantiated membership to list
+            R section
+                for each membership in the list
+                    write out the membership ID
+            U section
+                prompt user and obtain account id
+                search for index of that id in the list
+                if index found
+                    prompt user and obtain option to update
+                    update that option
+                else
+                    membership not found
+            D section
+                prompt user and obtain account id
+                search for index of that id in the list
+                if index found
+                    remove the membership at that index
+                else
+                    membership not found
+            L section
+                for each membership in the list
+                    write out all the information for that membership
+            P or T sections
+                prompt user and obtain account id
+                search for index of that id in the list
+                if index found
+                    prompt user for purchase/return amount
+                    invoke purchase/return method
+                else
+                    membership not found
+            A
+                prompt user and obtain account id
+                search for index of that id in the list
+                if index found
+                    invoke calculate cash-back method
+                else
+                    membership not found
+            Q section
+                change quit program flag to true
+        */
     static void Main(string[] args)
     {
         bool quitProgram = false;
