@@ -63,7 +63,7 @@ class Program
         string newEmail;
         string newNonProfitType;
         List<Membership> listOfMemberships = new List<Membership>();
-        listOfMemberships.Add(new Regular(12345678, "name@gmail.com", 0));
+        listOfMemberships.Add(new Regular(12345678, "name@gmail.com", 10));
         listOfMemberships.Add(new Executive(23456789, "email2@yahoo.com", 1001));
         listOfMemberships.Add(new Executive(34567890, "email2@yahoo.com", 999));
         listOfMemberships.Add(new NonProfit(45678901, "email3@hotmail.com", 100, "M"));
