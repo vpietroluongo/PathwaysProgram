@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+
+    <link rel="stylesheet" href="landingpage.css">
+
+    <!--  The following script loads the Google Map API and runs initMap() once it is loaded -->
+    <script defer
+       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkiABUFByt3GyY3Uw-QBgJ3Y3E_rOAlvQ&callback=initMap">
+    </script>
+    
+    <style type="text/css">
+      #mymap {
+        height: 150px;
+    }
+    </style>
+
+    <script src="landingpage.js"></script> 
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="top-bar-item-left">
+            <img src="MyMedia/huckleberry_heart.jpg" alt="Bear Jam" style="width:200px; vertical-align: middle;">
+        </div>
+        <div class="top-bar-item-center">
+            <h1>Bear Jams</h1>
+        </div>
+        <div class="top-bar-item-right">
+            <a href="https://www.nps.gov/glac/index.htm" title="Shop our catalog!"><img src="MyMedia/bear_jam.jpg" alt="Bear Jam catalog" style="width:50px;"></a>
+            <a href="https://www.nps.gov/yell/index.htm" title="Login or sign up!"><img src="MyMedia/login.png" alt="Bear Jam login" style="width:50px;"></a>
+            <a href="https://www.nps.gov/mora/index.htm" title="See your basket and check out!"><img src="MyMedia/basket.png" alt="shopping basket" style="width:50px;"></a>
+        </div>
+    </div>   
+
+    <div class="separator"></div>
+
+        <div class="content-area">
+        <div class="content-area-item">
+            <br />
+            <p><h1>Bear Jams</h1></p>
+            <p><h3><em>All your favorite huckleberry jams and treats!</em></h3></p>
+            <p><a href="https://www.nps.gov/glac/index.htm" title="Shop our catalog!">
+            <br />
+            <p><img src="MyMedia/bear_jam.jpg" alt="Bear Jam catalog" style="width:200px;"></a></p>
+            <p>Shop our catalog!</p>
+
+        </div>
+        <div class="content-area-item">
+            <p><h1>Try our most popular!</h1>
+               <h3><em>Huckleberry Bear Claws</em></h3>
+            </p>
+            <a href="https://www.nps.gov/yell/index.htm" title="Our most popular!"><img src="MyMedia/bear-claw-pastries.jpg" alt="Our most popular" style="width:80%;"></a>
+        </div>
+        <div class="content-area-item">
+            <p><h1>Check out our latest addition!</h1>
+               <h3><em>Huckleberry Ice Cream</em></h3>
+            </p>
+            <!-- <a href="https://www.nps.gov/grte/index.htm" title="Try our latest addition"><img src="MyMedia/assignment/charlottesweb.jpg" alt="Our latest addition: Huckleberry Apple Butter" style="width:50%;"></a> -->
+            <a href="https://www.nps.gov/grte/index.htm" title="Try our latest addition"><img src="MyMedia/huckleberry_icecream.jpg" alt="Our latest addition: Huckleberry Ice Cream" style="width:50%;"></a>
+        </div>
+        <div class="content-area-item">
+            <p><h1>Looking for recipes?</h1></p>
+            <a href="https://bakesbybrownsugar.com/huckleberry-crumb-bars/" title="Looking for recipes?"><img src="MyMedia/homemade_Jam.jpg" alt="Looking for recipes?" style="width:70%;"></a>
+
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="bottom-bar">
+        <div class="bottom-bar-item">
+            <h1>Open seasonly</h1>
+            <br>Huckleberry season is July-September
+        </div>
+        <div class="bottom-bar-item">
+            <h1>Contact us!</h1>
+            By phone: 123-456-7890
+            <br />By text: 123-456-7890
+            <br />By email: bearjams@bearjams.com
+        </div>
+        <div class="bottom-bar-item">
+            <p><h1>Find us!!</h1></p>
+            <p id="mymap"></p>
+        </div>
+    </div>
+</body>
+</html>
