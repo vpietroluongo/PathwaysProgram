@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="survey.css">
+
+    <script src="survey.js"></script> 
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Bridal Party Planning</h1>
+            <p>
+                Thank you for taking the time to help us narrow down bachelorette party and bridal shower ideas.
+            </p>
+        </header>
+        <form id="survey-form" onsubmit="myFunction()">
+            <div class="form-group">
+                <p>
+                    Please select any dates that work for you for the party:
+                    <span class="clue">(Check all that apply)</span>
+                </p>
+                <label">
+                    <input
+                        type="checkbox"
+                        class="input-checkbox" 
+                        name="date" 
+                        value="20250613-20250615"
+                    >June13-15
+                </label><br>
+                <label">
+                    <input
+                        type="checkbox"
+                        class="input-checkbox"
+                        name="date" 
+                        value="20250620-20250622">Jun 20-22
+                </label><br>
+                <label">
+                    <input
+                        type="checkbox"
+                        class="input-checkbox"
+                        name="date" 
+                        value="20250613-20250615">July 18-20
+                </label>
+            </div>
+        
+            <div class="form-group">
+                <p>Please select a theme for the party</p>
+                <label>
+                    <input
+                        name="theme"
+                        id="theme"
+                        value="chemistry"
+                        type="radio"
+                        class="input-radio"
+                        checked
+                    >
+                    Chemistry
+                </label>
+                <label>
+                    <input
+                        name="theme"
+                        id="theme"
+                        value="books"
+                        type="radio"
+                        class="input-radio"
+                    >
+                    Books
+                </label>
+                <label>
+                    <input
+                        name="theme"
+                        value="other"
+                        id="theme"
+                        type="radio"
+                        class="input-radio"
+                    >
+                    Other
+                </label>
+            </div>
+        
+            <div class="form-group">
+                <p>How far from the area are you willing to travel?</p>
+                <select id="dropdown" name="distance" class="form-control" required>
+                    <option>Select preference</option>
+                    <option value="local">As local as possible (less than 1 hour)</option>
+                    <option value="shortdrive">Short drive (1-3 hours)</option>
+                    <option value="longdrive">Long drive (3+ hours)</option>
+                    <option value="fly">Fly</option>
+                    <option value="np">No preference</option>
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <p>What activities or games would you be interested in?</p>
+                <textarea 
+                    id="comments" 
+                    class="input-textarea"
+                    name="comment"
+                    placeholder="Enter your ideas here..."
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <p>Do you have any dietary resistrions that should be factored into planning?</p>
+                <label for="diet">
+                    <input 
+                        type="text" 
+                        class="form-control"
+                        id="diet" 
+                        name="diet"
+                        placeholder="Enter dietary restrictions here..."
+                        required
+                    >
+                </label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" id="submit" class="submit-button">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
