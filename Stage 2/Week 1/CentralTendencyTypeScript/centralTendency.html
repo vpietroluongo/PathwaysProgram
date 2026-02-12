@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Tendency calculator - Typescript</title>
+
+    <link rel="stylesheet" href="centralTendency.css">
+
+    <script src="centralTendency.js"></script>
+<body>
+    <h1>Central Tendency Calculator</h1>
+    <div class="flexboxRow">
+        <div class="flexboxColumn">
+            <h3></h3>
+            <form name="inputForm">
+                Minimum value: <input type="text" name="minNumber" value="">
+                <br>
+                Maximum value: <input type="text" name="maxNumber" value="">
+                <br>
+                Enter a number: <input type="text" name="inputNumber" value="">
+                <br>
+                <button type="button" onclick="validateANDadd()">Submit</button>
+            </form>
+        </div>
+
+        <div class="flexboxColumn">
+            <h3>Numbers entered:</h3>
+            <table id="numberList"></table>
+        </div>
+
+        <div class="flexboxColumn">
+            <h3>Central Tendencies</h3>
+            <p>Mean: <label id="calculatedMean"></label></p>
+            <p>Median: <label id="calculatedMedian"></label></p>
+            <p>Mode: <label id="calculatedMode"></label></p>
+        </div>
+    </div>
+
+  
+    <h1>
+        <button type="button" onclick="clearEverything()">Clear Everything</button>
+    </h1>
+
+</body>
+</html>

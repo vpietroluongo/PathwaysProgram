@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 6 Day 2 Exercise - Palindrome</title>
+
+    <link rel="stylesheet" href="palindrome.css">
+
+    <script src="palindrome.js"></script>
+</head>
+
+<body>
+    <h1>Create a List of Palindromes</h1>
+    <div class="flexboxRow">
+        <div class="flexboxColumn">
+            <h3>Form to obtain a palindrome and put it in a list</h3>
+            <form name="listForm">
+                Enter a word: <input type="text" name="word" value="">
+                <br>
+                <!-- List 1 or 2: <input type="text" name="listNumber" value="">
+                <br> -->
+                Case-sensitivity: <input type="text" name="casePreference" value="">
+                <br>
+                <button type="button" onclick="validateANDadd()">Submit word</button>
+            </form>
+        </div>
+
+        <div class="flexboxColumn">
+            <h3>Case-Insensitive List of Palindromes</h3>
+            <table id="palindromeList1"></table>
+            <button type="button" onclick="clearList1()">Clear List 1</button>
+        </div>
+
+        <div class="flexboxColumn">
+            <h3>Case-Sensitive List of Palindromes 2</h3>
+            <table id="palindromeList2"></table>
+            <button type="button" onclick="clearList2()">Clear List 2</button>
+        </div>
+    </div>
+</body>
+</html>

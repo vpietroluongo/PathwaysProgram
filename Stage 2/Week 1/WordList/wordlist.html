@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 6 Day 2 Exercise - Word List</title>
+
+    <link rel="stylesheet" href="wordlist.css">
+
+    <script src="wordlist.js"></script>
+</head>
+
+<body>
+    <h1>Build a List of Words</h1>
+    <div class="flexboxRow">
+        <div class="flexboxColumn">
+            <h4>Form to obtain a word and put it in a list</h4>
+            <form name="listForm">
+                Enter a word: <input type="text" name="word" value="">
+                <br>
+                Do you want to put the word in list 1 or 2? <input type="text" name="listNumber" value="">
+                <br>
+                <button type="button" onclick="validateANDadd()">Submit word</button>
+            </form>
+        </div>
+
+        <div class="flexboxColumn">
+            <h4>List 1</h4>
+            <table id="list1"></table>
+            <button type="button" onclick="clearList1()">Clear List 1</button>
+        </div>
+
+        <div class="flexboxColumn">
+            <h4>List 2</h4>
+            <table id="list2"></table>
+            <button type="button" onclick="clearList2()">Clear List 2</button>
+        </div>
+    </div>
+
+</body>
+</html>
