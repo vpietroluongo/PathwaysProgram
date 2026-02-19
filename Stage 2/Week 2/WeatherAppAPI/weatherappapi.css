@@ -1,0 +1,33 @@
+/* the * applies styling to all elements in an HTML document*/
+/*setting box-sizing: border-box; on an element allows the padding and border to be included in the calculation of the width and height*/
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+}
+
+/*container for flex-boxes*/
+    /*display: flex; displays an element as a block-level flex container*/
+    /*flex-wrap: wrap;  specifies that the flex items will wrap if necessary*/
+.flexboxRow {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*create 3 equal columns in the flex-box*/
+.flexboxColumn {
+    flex: 33%;
+    padding: 20px;
+}
+
+/*media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page
+/* media-type screen is used for computer screens, tablets, and smart-phones
+    /*flex-direction: column; displays the flex items vertically from top to bottom*/
+    /*max-width	is the maximum width of the viewport */
+@media screen and (max-width: 600px) {
+    .flexboxRow {
+        flex-direction: column;
+    }
+}

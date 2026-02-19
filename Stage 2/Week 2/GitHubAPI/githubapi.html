@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=.1">
+    <title>GitHub API Call Example</title>
+
+    <link rel="stylesheet" href="githubapi.css">
+    <script src="githubapi.js"></script>
+</head>
+<body>
+    <h1>GitHub Repo Finder</h1>
+    <div class="flexboxRow">
+        <div class="flexboxColumn">
+            <label for="githubUserID">Enter a GitHub user ID</label>
+            <input type="text" id="githubUserID" value="">
+            <br>
+            <button type="button" onclick="getReposForUser()">Get repos</button>
+        </div>
+        
+        <div class="flexboxColumn">  
+            <h2 id="theUserID"></h2>
+            <p id="theRepos"></p>
+        </div>
+    </div>
+</body>
+</html>
