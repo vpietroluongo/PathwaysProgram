@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WeightConversion\UnitConversions.csproj" />
+    <ProjectReference Include="..\UnitConversion\UnitConversions.csproj" />
   </ItemGroup>
 
   <ItemGroup>
