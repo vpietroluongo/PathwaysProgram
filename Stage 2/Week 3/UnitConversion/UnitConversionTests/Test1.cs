@@ -162,12 +162,12 @@ namespace UnitConversionTests
         {
             IConvert toPoundsConverter = new ToPounds();
             UnitConversionService unitConversionService1 = new UnitConversionService(toPoundsConverter);
-            double pounds = 10;
+            double kilograms = 10;
             string unit = "kilograms";
 
             try
             {
-                unitConversionService1.Convert(pounds, unit);
+                unitConversionService1.Convert(kilograms, unit);
             }
             catch (Exception e)
             {
