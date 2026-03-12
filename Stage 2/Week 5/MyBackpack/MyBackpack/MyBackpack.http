@@ -1,0 +1,6 @@
+@MyBackpack_HostAddress = http://localhost:5081
+
+GET {{MyBackpack_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

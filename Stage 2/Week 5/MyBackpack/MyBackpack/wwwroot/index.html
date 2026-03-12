@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Backpack CRUD</title>
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <h1>My Backpack CRUD</h1>
+    <h3>Add</h3>
+    <form id="myBackpackForm" action="javascript:void(0);" method="POST" onsubmit="addItem()">
+        <input type="text" id="add-gear" placeholder="New gear item">
+        <select id="add-category-dropdown" name="category" required>
+            <option>Select category</option>
+            <option value="pack">Pack</option>
+            <option value="consumables">Consumables</option>
+            <option value="kitchen">Kitchen</option>
+            <option value="water">Water</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothes">Clothes</option>
+            <option value="other">Other</option>
+        </select>
+        <br />
+        <input type="text" id="add-weight" placeholder="New weight">
+        <select id="add-weight-unit-dropdown" name="weight-unit" required>
+            <option>Select unit of weight</option>
+            <option value="oz">oz</option>
+            <option value="lb">lb</option>
+            <option value="g">g</option>
+            <option value="kg">kg</option>
+        </select>
+        <br />
+        <select id="add-isConsumable-dropdown" name="isConsumable" required>
+            <option>Is it consumable?</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <select id="add-isWorn-dropdown" name="isWorn" required>
+            <option>Is it worn?</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <br />
+        <!--<div id="add-isConsumable-radio">
+            Is it Consumable?
+            <label>
+                <input name="isConsumable"
+                       id="isConsumable"
+                       value="true"
+                       type="radio"
+                       class="input-radio">
+                Yes
+            </label>
+            <label>
+                <input name="isConsumable"
+                       id="isConsumable"
+                       value="false"
+                       type="radio"
+                       class="input-radio"
+                       checked>
+                No
+            </label>
+        </div>
+        <div id="add-isWorn-radio">
+            Is it Worn?
+            <label>
+                <input name="isWorn"
+                       id="isWorn"
+                       value="true"
+                       type="radio"
+                       class="input-radio">
+                Yes
+            </label>
+            <label>
+                <input name="isWorn"
+                       id="isWorn"
+                       value="false"
+                       type="radio"
+                       class="input-radio"
+                       checked>
+                No
+            </label>
+        </div>-->
+        <!--<input type="text" id="add-isConsumable" placeholder="Is it consumable?">
+    <input type="text" id="add-isWorn" placeholder="Is it worn?">-->
+        <input type="submit" value="Add">
+    </form>
+
+    <div id="editForm">
+        <h3>Edit</h3>
+        <form action="javascript:void(0);" onsubmit="updateItem()">
+            <input type="hidden" id="edit-id">
+            <input type="text" id="edit-gear">
+            <select id="edit-category-dropdown" name="category" required>
+                <option>Select category</option>
+                <option value="pack">Pack</option>
+                <option value="consumables">Consumables</option>
+                <option value="kitchen">Kitchen</option>
+                <option value="water">Water</option>
+                <option value="electronics">Electronics</option>
+                <option value="clothes">Clothes</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="text" id="edit-weight">
+            <select id="edit-weight-unit-dropdown" name="weight-unit" required>
+                <option>Select unit of weight</option>
+                <option value="oz">oz</option>
+                <option value="lb">lb</option>
+                <option value="g">g</option>
+                <option value="kg">kg</option>
+            </select>
+            <select id="edit-isConsumable-dropdown" name="isConsumable" required>
+                <option>Is it consumable?</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <select id="edit-isWorn-dropdown" name="isWorn" required>
+                <option>Is it worn?</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <!--<input type="checkbox" id="edit-isConsumable">
+            <input type="checkbox" id="edit-isWorn">-->
+
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+
+    <p id="counter"></p>
+    <p id="total-weight"></p>
+
+    <table>
+        <tr>
+            <th>Gear item</th>
+            <th>Category</th>
+            <th class="no-right-border">Weight</th>
+            <th class="no-left-border"></th>
+            <th>Is it consumable?</th>
+            <th>Is it worn?</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tbody id="gearitems"></tbody>
+    </table>
+
+    <script src="js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getItems();
+    </script>
+</body>
+</html>
