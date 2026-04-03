@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MathConsole/MathConsole.csproj" />
+  <Project Path="MathServiceTests/MathServiceTests.csproj" />
+</Solution>
