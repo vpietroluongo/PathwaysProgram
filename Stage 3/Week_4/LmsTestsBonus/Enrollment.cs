@@ -1,0 +1,1 @@
+public record Enrollment(int Id, int StudentId, int CourseId, DateTime EnrolledDate, bool IsCompleted = false);

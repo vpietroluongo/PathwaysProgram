@@ -1,0 +1,1 @@
+public record Course(int Id, string Title, int MaxStudents = 30);
