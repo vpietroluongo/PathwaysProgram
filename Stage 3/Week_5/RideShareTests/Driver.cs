@@ -1,0 +1,1 @@
+public record Driver(int Id, string Name, string Vehicle, decimal Rating, bool IsAvailable);
