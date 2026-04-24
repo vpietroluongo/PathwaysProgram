@@ -140,6 +140,7 @@ namespace EFDemo
             }
 
             //Activity 8
+            Console.WriteLine("*** Activity 8 ***");
             var sortedAddresses = context.Addresses
                 .OrderBy(a => a.City)
                 .ThenBy(a => a.Street)
@@ -150,6 +151,7 @@ namespace EFDemo
             } 
 
             //Activity 9
+            Console.WriteLine("*** Activity 9 ***");
             var hasMostAddresses = context.Contacts 
                 //.Include(c => c.Addresses)
                 .OrderByDescending(c => c.Addresses.Count())
@@ -167,6 +169,7 @@ namespace EFDemo
             }
 
             //Activity 10
+            Console.WriteLine("*** Activity 10 ***");
             var notInSpringfield = context.Contacts
                 .Where(c => c.Addresses.All(a => a.City != "Springfield"))
                 .Select(c => c.Name)

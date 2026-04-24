@@ -15,29 +15,35 @@ class Program
     {
         Console.WriteLine("Actions & Funcs playground\n");
 
+        Console.WriteLine("\n=== Task 1 ===");
         Func<int, int> doubleNumber = n => 2 * n;
         Console.WriteLine($"Double number: {doubleNumber(5)}");
         Console.WriteLine($"Double number: {doubleNumber(12)}");
         Console.WriteLine($"Double number: {doubleNumber(100)}");
 
+        Console.WriteLine("\n=== Task 2 ===");
         Action<string> saySomethingNice = name => Console.WriteLine($"You're awesome, {name}!");
         saySomethingNice("Cooper");
         saySomethingNice("Dominic");
         saySomethingNice("Jim");
 
+        Console.WriteLine("\n=== Task 3 ===");
         Func<int, bool> isEven = n => n % 2 == 0;
         Console.WriteLine($"4 is even: {isEven(4)}");
         Console.WriteLine($"7 is even: {isEven(7)}");
         Console.WriteLine($"0 is even: {isEven(0)}");
         Console.WriteLine($"13 is even: {isEven(13)}");
 
+        Console.WriteLine("\n=== Task 4 ===");
         Twice(() => Console.WriteLine("Message goes here"));
         Twice(() => Console.WriteLine(isEven(5)));
 
+        Console.WriteLine("\n=== Task 5 ===");
         Console.WriteLine(Operate(36, 4, (x, y) => x + y));
         Console.WriteLine(Operate(36, 4, (x, y) => x - y));
         Console.WriteLine(Operate(36, 4, (x, y) => x * y));
 
+        Console.WriteLine("\n=== Task 6 ===");
         Func<string> greeting = () =>
         {
             int hour = DateTime.Now.Hour;
@@ -46,6 +52,7 @@ class Program
 
         Console.WriteLine($"Good {greeting()}");
 
+        Console.WriteLine("\n=== Task 7 ===");
         Func<int, string> bigOrSmall = n =>
         {
             return n > 100 ? "big" : "small";
