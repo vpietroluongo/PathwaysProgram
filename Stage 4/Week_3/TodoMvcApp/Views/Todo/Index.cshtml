@@ -1,0 +1,29 @@
+@model List<Todo>
+
+<h2>My Todo List</h2>
+
+<a asp-action="Create">+ Add New Todo</a>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var todo in Model)
+        {
+            <tr>
+                <td>@todo.Title</td>
+                <td>@(todo.IsCompleted ? "✅ Completed" : "⏳ Pending")</td>
+                <td>
+                    <a asp-action="Toggle" asp-route-id="@todo.Id">Toggle</a> |
+                    <a asp-action="Delete" asp-route-id="@todo.Id"
+                        onclick="return confirm('Delete this todo?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
