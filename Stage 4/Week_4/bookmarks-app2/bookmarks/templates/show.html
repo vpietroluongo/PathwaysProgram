@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ bookmark.title}} &mdash; Bookmarks{% endblock %}
+{% block content %}
+    <h2>{{ bookmark.title }}</h2>
+    <p><a href="{{ bookmark.url }}">{{ bookmark.url }}</a></p>
+    <p><a href="{{ url_for('main.index')}}">&larr; Back to list</a></p>
+    <form method="post" action="{{ url_for('main.delete', bookmark_id=bookmark.id) }}">    
+        <button type="submit">Delete</button>
+    </form>
+    <br>
+    <form method="put" action="{{ url_for('main.update', bookmark_id=bookmark.id) }}">    
+        <button type="submit">Update</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}New bookmark{% endblock %}
+{% block content %}
+    <h2>New bookmark</h2>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <label>{{ form.title.label }} {{ form.title() }}</label>
+        {% for error in form.title.errors %}
+            <p class="muted">{{ error }}</p>
+        {% endfor %}
+        <label>{{ form.url.label }} {{ form.url() }}</label>
+        {% for error in form.url.errors %}
+            <p class="muted">{{ error }}</p>
+        {% endfor %}
+        <label>{{ form.description.label }} {{ form.description() }}</label>
+        {% for error in form.description.errors %}
+            <p class="muted">{{ error }}</p>
+        {% endfor %}
+        <label>{{ form.tags.label }} {{ form.tags() }}</label>
+        {% for error in form.tags.errors %}
+            <p class="muted">{{ error }}</p>
+        {% endfor %}
+        {{ form.submit() }}
+    </form>
+{% endblock %}

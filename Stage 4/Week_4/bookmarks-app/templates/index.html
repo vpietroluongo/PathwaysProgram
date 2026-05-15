@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+    <p><a href="{{ url_for('new') }}">+ Add a bookmark</a></p>
+    
+    {% if tag %}
+        <p>
+            Filtering by tag: <strong>{{ tag }}</strong>
+            (<a href="{{ url_for('index') }}">clear</a>)
+        </p>
+    {% endif %}
+    
+    <h2>All bookmarks ({{ bookmarks|length}})</h2>
+    {% if bookmarks %}
+        <ul>
+            {% for b in bookmarks %}
+                <li>
+                    <a href="{{ b.url }}">{{ b.title }}</a> &mdash;
+                    <a href="{{ url_for('show', bookmark_id=b.id)}}">details</a>
+
+                    {% if b.tags %}
+                        <br>
+                        Tags:
+                        {% for t in b.tags.split(",") %}
+                            {% set t_clean = t.strip() %}
+                            {% if t_clean %}
+                                <a href="{{ url_for('index', tag=t_clean|lower) }}">{{ t_clean }}</a>{% if not loop.last %}, {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No bookmarks yet.</p>
+    {% endif %}
+{% endblock %}

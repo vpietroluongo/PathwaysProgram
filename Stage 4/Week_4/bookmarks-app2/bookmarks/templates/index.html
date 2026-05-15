@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <p><a href="{{ url_for('main.new') }}">+ Add a bookmark</a></p>
+    <h2>All bookmarks ({{ bookmarks|length}})</h2>
+    {% if bookmarks %}
+        <ul>
+            {% for b in bookmarks %}
+                <li>
+                    <a href="{{ b.url }}">{{ b.title }}</a> &mdash;
+                    <a href="{{ url_for('main.show', bookmark_id=b.id)}}">details</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No bookmarks yet.</p>
+    {% endif %}
+{% endblock %}

@@ -480,3 +480,79 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build and packaging artifacts
+build/
+dist/
+.eggs/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Local environment and secrets
+.env
+.env.*
+*.env
+
+# Flask instance data (secrets/local DB/runtime files)
+instance/*
+
+# Keep folder structure if needed
+!instance/.gitkeep
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs and runtime artifacts
+*.log
+*.pid
+*.out
+
+# Test and coverage caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Type/check/lint caches
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.dmypy.json
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor
+.idea/
+*.swp
+*.swo
+
+# VS Code: ignore local machine debug/state, allow shared recommendations
+.vscode/*
+!.vscode/extensions.json
+
+# Optional: if your team shares workspace settings, also allow this
+#!.vscode/settings.json
+
+# Alembic / migrations cache only
+migrations/**/__pycache__/
