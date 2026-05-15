@@ -10,6 +10,8 @@ login_manager.login_view = "auth.login"
 csrf = CSRFProtect()
 migrate = Migrate()
 
+#adding small change to test workflow
+
 @login_manager.user_loader
 def load_user(user_id):
     return db.session.get(User, int(user_id))
