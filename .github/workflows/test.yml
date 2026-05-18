@@ -22,9 +22,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r bookmarks-app2/requirements.txt
+          pip install -r Stage 4/Week_4bookmarks-app2/requirements.txt
 
       - name: Run tests
-        run: pytest bookmarks-app2/tests/
+        run: pytest Stage 4/Week_4/bookmarks-app2/tests/
         env:
           SECRET_KEY: ci-test-secret
