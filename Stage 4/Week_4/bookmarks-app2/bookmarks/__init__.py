@@ -3,12 +3,12 @@ from flask_login import LoginManager
 from .config import Config
 from .models import db, User
 from flask_wtf.csrf import CSRFProtect
-from flask_migrate import Migrate
+#from flask_migrate import Migrate
 
 login_manager = LoginManager()
 login_manager.login_view = "auth.login"
 csrf = CSRFProtect()
-migrate = Migrate()
+#migrate = Migrate()
 
 #adding small change to test workflow
 
@@ -21,7 +21,7 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
 
     db.init_app(app)
-    migrate.init_app(app, db)
+    #migrate.init_app(app, db)
     login_manager.init_app(app)
     csrf.init_app(app)
 
@@ -35,7 +35,7 @@ def create_app(config_class=Config):
     app.register_blueprint(api_bp)
 
     ### NOTE: db.create_all() is gone.  Use `flask db upgrade` instead.  Removed so that is does not silently create any missing tables on every app start, bypassing migrations
-    # with app.app_context():
-    #     db.create_all()
+    with app.app_context():
+         db.create_all()
     
     return app
