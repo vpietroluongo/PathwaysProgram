@@ -2,9 +2,11 @@ name: Tests
 
 on:
   push:
-    branches: ["**"]
+    paths:
+      - 'Stage 4/Week_4/**'
   pull_request:
-    branches: ["**"]
+    paths:
+      - 'Stage 4/Week_4/**'
 
 jobs:
   test:
