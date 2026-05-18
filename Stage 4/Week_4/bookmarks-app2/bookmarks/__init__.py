@@ -10,7 +10,7 @@ login_manager.login_view = "auth.login"
 csrf = CSRFProtect()
 #migrate = Migrate()
 
-#adding small change to test workflow
+#adding small change to test workflow onyl runs when pushing from Week_4 
 
 @login_manager.user_loader
 def load_user(user_id):
