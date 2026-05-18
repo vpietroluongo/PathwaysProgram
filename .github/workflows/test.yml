@@ -30,3 +30,4 @@ jobs:
         run: pytest tests/
         env:
           SECRET_KEY: ci-test-secret
+          PYTHONPATH: .
