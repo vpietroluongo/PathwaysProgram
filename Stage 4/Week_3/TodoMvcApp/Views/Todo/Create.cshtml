@@ -1,0 +1,13 @@
+@model Todo
+
+<h2>Add Todo</h2>
+
+<form asp-action="Create" method="post">
+	<div>
+		<label asp-for="Title"></label>
+		<input asp-for="Title" />
+	</div>
+	<br />
+	<button type="submit">Save</button>
+	<a asp-action="Index">Cancel</a>
+</form>
