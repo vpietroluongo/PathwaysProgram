@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}Rooms | ChatFlow{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+  <div class="col-12 col-lg-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body">
+        <h2 class="h5 mb-3">Welcome, {{ user.username }}</h2>
+        <form method="post" action="{{ url_for('chat.chat_list') }}" class="mb-3">
+          <label class="form-label" for="room_name">Create or join room</label>
+          <div class="input-group">
+            <input id="room_name" name="room_name" type="text" class="form-control" placeholder="Room name" required>
+            <button class="btn btn-primary" type="submit">Go</button>
+          </div>
+        </form>
+        <p class="small text-secondary mb-0">Choose a room from the list or create a new one.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-8">
+    <div class="card border-0 shadow-sm mb-4">
+      <div class="card-body">
+        <h2 class="h5 mb-3">Available Rooms</h2>
+        {% if rooms %}
+          <div class="list-group">
+            {% for room in rooms %}
+              <a href="{{ url_for('chat.chat_window', room_id=room.id) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <span>{{ room.name }}</span>
+                <span class="badge text-bg-secondary">{{ room.members|length }} members</span>
+              </a>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="alert alert-light border mb-0">No rooms yet. Create your first room.</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="card border-0 shadow-sm">
+      <div class="card-body">
+        <h2 class="h5 mb-3">Direct Messages</h2>
+        {% if users %}
+          <div class="list-group">
+            {% for peer in users %}
+              <a href="{{ url_for('chat.direct_message_window', peer_id=peer.id) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <span>{{ peer.username }}</span>
+                <span class="status-dot {% if peer.status == 'online' %}status-online{% else %}status-offline{% endif %}"></span>
+              </a>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="alert alert-light border mb-0">No other users available yet.</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% block title %}Chat | Chatflow{% endblock %}
+
+{% block content %}
+<div class="row g-3 chat-layout">
+    <aside class="col-lg-3">
+        <div class="card h-100 shadow-sm">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span class="fw-semibold">Rooms</span>
+                <span class="badge text-bg-secondary">{{ rooms|length }}</span>
+            </div>
+            <div class="list-group list-group-flush">
+                {% for room in rooms %}
+                <a href="{{ url_for('chat.room', room_id=room.id) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center {% if active_room and room.id == active_room.id %}active{% endif %}">
+                    <span>{{ room.name }}</span>
+                    {% if unread_counts[room.id] > 0 %}
+                        <span class="badge rounded-pill text-bg-danger">{{ unread_counts[room.id] }}</span>
+                    {% endif %}
+                </a>
+                {% endfor %}
+            </div>
+            <div class="card-footer">
+                <h2 class="h6">Online now</h2>
+                <ul class="list-unstyled mb-0 small">
+                    {% for user in online_users %}
+                        <li class="d-flex align-items-center gap-2 mb-1">
+                            <span class="status-dot"></span>
+                            <span>{{ user.username }}</span>
+                        </li>
+                    {% else %}
+                        <li class="text-body-secondary">No users online</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <section class="col-lg-9">
+        {% if active_room %}
+        <div class="card chat-window shadow-sm">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span class="fw-semibold">{{ active_room.name }}</span>
+                <span id="typingIndicator" class="small text-body-secondary"></span>
+            </div>
+            <div class="card-body" id="messageList">
+                {% for message in messages %}
+                    <article class="mb-3 {% if message.sender_id == current_user.id %}text-end{% endif %}">
+                        <div class="small text-body-secondary">{{ message.sender.username }} • {{ message.timestamp.strftime('%H:%M') }}</div>
+                        <div class="d-inline-block p-2 rounded {% if message.sender_id == current_user.id %}bg-primary text-white{% else %}bg-body-secondary{% endif %}">
+                            {{ message.content }}
+                        </div>
+                    </article>
+                {% else %}
+                    <p class="text-body-secondary mb-0">No messages yet. Start the conversation.</p>
+                {% endfor %}
+            </div>
+            <div class="card-footer">
+                <form id="messageForm" method="post" action="{{ url_for('chat.post_message', room_id=active_room.id) }}">
+                    {{ form.hidden_tag() }}
+                    <div class="input-group">
+                        {{ form.content(id='messageInput', class_='form-control', rows='1', placeholder='Type your message...') }}
+                        {{ form.submit(class_='btn btn-primary') }}
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% else %}
+            <div class="alert alert-info">No room selected.</div>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-mZ8s7qS6Zm8q0RvrRZtGJPD7W82dManIeZDV4SSQSSHqzTeWY5Avzkdxl3pNGdis" crossorigin="anonymous"></script>
+<script>
+(function initChat() {
+    const activeRoom = {{ active_room.id if active_room else 'null' }};
+    if (!activeRoom) {
+        return;
+    }
+
+    const socket = io();
+    const messageForm = document.getElementById('messageForm');
+    const messageInput = document.getElementById('messageInput');
+    const messageList = document.getElementById('messageList');
+    const typingIndicator = document.getElementById('typingIndicator');
+
+    socket.on('connect', function () {
+        socket.emit('join_room', { room_id: activeRoom });
+    });
+
+    socket.on('new_message', function (message) {
+        if (message.room_id !== activeRoom) {
+            return;
+        }
+        const wrap = document.createElement('article');
+        wrap.className = 'mb-3' + (message.sender_id === {{ current_user.id }} ? ' text-end' : '');
+        const stamp = document.createElement('div');
+        stamp.className = 'small text-body-secondary';
+        stamp.textContent = message.sender + ' • just now';
+        const bubble = document.createElement('div');
+        bubble.className = 'd-inline-block p-2 rounded ' + (message.sender_id === {{ current_user.id }} ? 'bg-primary text-white' : 'bg-body-secondary');
+        bubble.textContent = message.content;
+        wrap.appendChild(stamp);
+        wrap.appendChild(bubble);
+        messageList.appendChild(wrap);
+        messageList.scrollTop = messageList.scrollHeight;
+    });
+
+    socket.on('typing', function (payload) {
+        if (payload.room_id !== activeRoom || !payload.is_typing) {
+            typingIndicator.textContent = '';
+            return;
+        }
+        typingIndicator.textContent = payload.username + ' is typing...';
+        window.setTimeout(function () {
+            typingIndicator.textContent = '';
+        }, 1200);
+    });
+
+    messageInput.addEventListener('input', function () {
+        socket.emit('typing', { room_id: activeRoom, is_typing: true });
+    });
+
+    messageForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const content = messageInput.value.trim();
+        if (!content) {
+            return;
+        }
+        socket.emit('send_message', { room_id: activeRoom, content: content });
+        messageInput.value = '';
+    });
+})();
+</script>
+{% endblock %}

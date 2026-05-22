@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quote Collector</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 640px;
+               margin: 2rem auto; padding: 1rem; color: #222}
+        .quote { border: 1px solid #ddd; border-left: 4px solid #3776ab;
+                 padding: 0.85rem 1rem; margin: 0.75rem 0; border-radius: 4px;
+                 background: white; }
+        .quote .text { font-style: italic; margin: 0 0 0.3rem; }
+        .quote .author { color: #666; font-size: 0.9rem; margin: 0; }
+        h1 { color: #3776ab; }
+    </style>
+</head>
+<body>
+    <h1>Quote Collector</h1>
+    <form method="post" action="/quote" style="margin-bottom: 1.5rem;">
+        <input name="text" placeholder="Quote text" required
+            style="width: 100%; padding: 0.5rem; margin-bottom: 0.4rem;">
+        <input name="author" placeholder="Author" required
+            style="width: 100%; padding: 0.5rem; margin-bottom: 0.4rem;">
+        <button type="submit"
+            style="padding: 0.5rem 1rem; background: #3776ab; color: white; border: 0; border-radius: 4px; cursor: pointer;">
+            Add quote
+        </button>
+    </form>
+    <p>{{ quotes|length }} quotes on file.</p>
+
+    {% for quote in quotes %}
+        <div class="quote">
+            <p class="text">"{{ quote.text }}"</p>
+            <p class="author">- {{ quote.author }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

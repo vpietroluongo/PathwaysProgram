@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}{{ room.name }} | ChatFlow{% endblock %}
+{% block content %}
+<div class="row g-3 app-shell">
+  <aside class="col-12 col-lg-3">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="h6 text-uppercase text-muted">Sidebar</h2>
+        <div class="list-group">
+          {% for item in rooms %}
+            <a class="list-group-item list-group-item-action {% if item.id == room.id %}active{% endif %}"
+               href="{{ url_for('chat.chat_room', room_id=item.id) }}">
+              {{ item.name }}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <section class="col-12 col-lg-9">
+    <div class="card shadow-sm chat-card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <div>
+          <h1 class="h5 mb-0">{{ room.name }}</h1>
+          <small class="text-muted">Room members: {{ room.members | length }}</small>
+        </div>
+        <div class="small text-muted">
+          {% for member in room.members %}
+            <span class="me-2">{{ member.username }}
+              <span class="presence-dot {% if member.status == 'online' %}online{% else %}offline{% endif %}"></span>
+            </span>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div id="message-list" class="card-body message-list" data-room-id="{{ room.id }}">
+        {% for message in messages %}
+          <div class="message-row {% if message.sender_id == current_user.id %}mine{% endif %}" data-message-id="{{ message.id }}">
+            <div class="message-bubble">
+              <div class="small fw-bold">{{ message.sender.username }}</div>
+              <div>{{ message.content }}</div>
+              <div class="small text-muted">{{ message.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div id="typing-indicator" class="px-3 pb-2 small text-muted"></div>
+
+      <div class="card-footer">
+        <form id="message-form" class="d-flex gap-2">
+          <input id="message-input" class="form-control" placeholder="Write a message..." autocomplete="off" required>
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  window.CHAT_CONTEXT = {{ room_data | tojson }};
+</script>
+{% endblock %}

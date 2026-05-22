@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %}{% if chat_mode == 'room' %}{{ room.name }}{% else %}{{ active_peer.username }}{% endif %} | ChatFlow{% endblock %}
+
+{% block content %}
+<div class="row g-3 chat-layout">
+  <aside class="col-12 col-lg-3">
+    <div class="card border-0 shadow-sm sidebar-panel">
+      <div class="card-body">
+        <h2 class="h6 text-uppercase text-secondary mb-3">Rooms</h2>
+        <div class="list-group mb-4">
+          {% for r in rooms %}
+            <a href="{{ url_for('chat.chat_window', room_id=r.id) }}" class="list-group-item list-group-item-action {% if chat_mode == 'room' and r.id == room.id %}active{% endif %}">
+              {{ r.name }}
+            </a>
+          {% endfor %}
+        </div>
+
+        <h2 class="h6 text-uppercase text-secondary mb-2">Direct Messages</h2>
+        <ul class="list-group" id="memberList">
+          {% for member in users %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <a class="text-decoration-none" href="{{ url_for('chat.direct_message_window', peer_id=member.id) }}">{{ member.username }}</a>
+              <span class="status-dot {% if member.status == 'online' %}status-online{% else %}status-offline{% endif %}" data-user-id="{{ member.id }}"></span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <section class="col-12 col-lg-9">
+    <div class="card border-0 shadow-sm chat-panel">
+      <div class="card-header bg-body d-flex justify-content-between align-items-center">
+        <div>
+          {% if chat_mode == 'room' %}
+            <h1 class="h5 mb-0"># {{ room.name }}</h1>
+          {% else %}
+            <h1 class="h5 mb-0">@ {{ active_peer.username }}</h1>
+          {% endif %}
+          <small class="text-secondary d-flex align-items-center gap-2">
+            <span id="typingDots" class="typing-dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+            <span id="typingIndicator"></span>
+          </small>
+        </div>
+      </div>
+
+      <div id="messageList" class="card-body message-list">
+        {% for message in messages %}
+          <div class="message-row {% if message.sender_id == user.id %}mine{% endif %}">
+            <div class="message-bubble">
+              <div class="small text-secondary mb-1">{{ message.sender.username }} • {{ message.timestamp.strftime('%H:%M') }}</div>
+              <div>{{ message.content }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="card-footer bg-body">
+        <form id="messageForm" class="d-flex gap-2">
+          <input id="messageInput" type="text" class="form-control" placeholder="Write a message..." autocomplete="off" required>
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+  window.ChatConfig = {
+    userId: {{ user.id }},
+    username: {{ user.username|tojson }},
+    chatMode: {{ chat_mode|tojson }},
+    roomId: {{ room.id if room else 'null' }},
+    receiverId: {{ active_peer.id if active_peer else 'null' }},
+    receiverUsername: {{ active_peer.username|tojson if active_peer else 'null' }}
+  };
+</script>
+<script src="{{ url_for('static', filename='chat.js') }}"></script>
+{% endblock %}

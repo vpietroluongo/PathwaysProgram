@@ -1,0 +1,19 @@
+.chat-layout {
+    min-height: calc(100vh - 110px);
+}
+
+.chat-window {
+    height: calc(100vh - 140px);
+}
+
+#messageList {
+    overflow-y: auto;
+    max-height: calc(100vh - 280px);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: #20c997;
+}
