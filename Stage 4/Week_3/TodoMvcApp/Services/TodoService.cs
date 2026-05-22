@@ -16,7 +16,7 @@ public class TodoService
     {
         var todo = GetById(id);
         if (todo != null)
-            todo.IsCompleted == !todo.IsCompleted;
+            todo.IsCompleted = !todo.IsCompleted;
     }
 
     public void Delete(int id)
